@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://tsy5a2opbc3a"]
+[gd_scene load_steps=27 format=3 uid="uid://tsy5a2opbc3a"]
 
 [ext_resource type="Texture2D" uid="uid://cfm2vbf8ky57t" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/ground tiles/New tiles/Darker_Grass_Hills_Tiles_v2.png" id="1_n7782"]
 [ext_resource type="Texture2D" uid="uid://ccqon56vesxe3" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/ground tiles/New tiles/Soil_Ground_Tiles.png" id="2_lrnyh"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bkab7qfhfl6hf" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/Building parts/Wooden House.png" id="8_563qd"]
 [ext_resource type="Texture2D" uid="uid://cnei3iu030ex7" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/Building parts/door animation sprites.png" id="9_iobgc"]
 [ext_resource type="Texture2D" uid="uid://birg7pnc4odld" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/Building parts/Basic Furniture.png" id="10_7v05u"]
+[ext_resource type="PackedScene" uid="uid://bue7g6tvfpgd" path="res://Scenes/Game/player.tscn" id="13_sbick"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ybtwq"]
 texture = ExtResource("3_lxjmb")
@@ -810,3 +811,6 @@ layer_4/y_sort_enabled = false
 layer_4/y_sort_origin = 0
 layer_4/z_index = 0
 layer_4/tile_data = PackedInt32Array(262149, 262153, 2, 262150, 196617, 3, 65547, 65545, 1, 131083, 65545, 2, 131082, 196617, 2, 65546, 131081, 0, 196614, 65545, 0, 131079, 196617, 0, 327689, 131081, 5)
+
+[node name="Player" parent="." instance=ExtResource("13_sbick")]
+position = Vector2(169, 46)
