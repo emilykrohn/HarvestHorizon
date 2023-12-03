@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://clcsouub7x8xf"]
+[gd_scene load_steps=3 format=3 uid="uid://clcsouub7x8xf"]
 
 [ext_resource type="PackedScene" uid="uid://cjbehrxq2uno7" path="res://Scenes/MainMenu/button.tscn" id="1_a7sjt"]
+[ext_resource type="Script" path="res://Scripts/MainMenu/main_menu.gd" id="1_v658j"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_v658j")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -53,3 +55,5 @@ text = "Settings"
 [node name="QuitButton" parent="MarginContainer/ButtonContiner" instance=ExtResource("1_a7sjt")]
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/ButtonContiner/QuitButton" to="." method="_on_quit_button_pressed"]
