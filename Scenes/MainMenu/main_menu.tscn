@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://clcsouub7x8xf"]
+
+[ext_resource type="Theme" uid="uid://umu4apyw8r7o" path="res://Scenes/MainMenu/Themes/Button.tres" id="1_b7dut"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 485.0
+offset_top = 268.0
+offset_right = 680.0
+offset_bottom = 342.0
+theme = ExtResource("1_b7dut")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Start"
