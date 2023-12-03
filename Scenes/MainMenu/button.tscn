@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://umu4apyw8r7o" path="res://Scenes/MainMenu/Themes/Button.tres" id="1_hqvhd"]
 
 [node name="Button" type="Button"]
+size_flags_vertical = 3
 theme = ExtResource("1_hqvhd")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)

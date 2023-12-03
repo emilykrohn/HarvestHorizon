@@ -23,6 +23,7 @@ offset_right = 133.5
 offset_bottom = 79.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 5
 alignment = 1
 
 [node name="Button" parent="VBoxContainer" instance=ExtResource("1_a7sjt")]
