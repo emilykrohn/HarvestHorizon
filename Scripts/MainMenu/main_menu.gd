@@ -26,3 +26,7 @@ func _on_settings_close_button_pressed():
 	$%StartButton.disabled = false
 	$%SettingsButton.disabled = false
 	$%QuitButton.disabled = false
+
+
+func _on_start_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Game/main.tscn")

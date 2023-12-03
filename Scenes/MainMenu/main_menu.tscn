@@ -86,6 +86,7 @@ offset_bottom = 465.5
 theme_override_font_sizes/font_size = 20
 text = "Close"
 
+[connection signal="pressed" from="MarginContainer/ButtonContiner/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ButtonContiner/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ButtonContiner/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Settings/SettingsCloseButton" to="." method="_on_settings_close_button_pressed"]
