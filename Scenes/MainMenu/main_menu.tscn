@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://clcsouub7x8xf"]
+[gd_scene load_steps=4 format=3 uid="uid://clcsouub7x8xf"]
 
 [ext_resource type="PackedScene" uid="uid://cjbehrxq2uno7" path="res://Scenes/MainMenu/button.tscn" id="1_a7sjt"]
+[ext_resource type="Script" path="res://Scripts/MainMenu/main_menu.gd" id="1_v658j"]
+[ext_resource type="Texture2D" uid="uid://bjk3pyw7o2q3y" path="res://Art/Sprout Lands - UI Pack - Premium pack/UI Sprites/Other UI sprites/Setting menu.png" id="3_imjsi"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,24 +11,81 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_v658j")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -154.5
+offset_top = 92.0
+offset_right = 154.5
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Harvest Horizon"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -133.5
-offset_top = -79.5
-offset_right = 133.5
-offset_bottom = 79.5
+offset_left = -173.0
+offset_top = -109.0
+offset_right = 173.0
+offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ButtonContiner" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
 alignment = 1
 
-[node name="Button" parent="VBoxContainer" instance=ExtResource("1_a7sjt")]
+[node name="StartButton" parent="MarginContainer/ButtonContiner" instance=ExtResource("1_a7sjt")]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Button2" parent="VBoxContainer" instance=ExtResource("1_a7sjt")]
+[node name="SettingsButton" parent="MarginContainer/ButtonContiner" instance=ExtResource("1_a7sjt")]
+unique_name_in_owner = true
 layout_mode = 2
+text = "Settings"
+
+[node name="QuitButton" parent="MarginContainer/ButtonContiner" instance=ExtResource("1_a7sjt")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[node name="Settings" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.5
+offset_top = -272.5
+offset_right = 244.5
+offset_bottom = 272.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_imjsi")
+
+[node name="SettingsCloseButton" parent="Settings" instance=ExtResource("1_a7sjt")]
+layout_mode = 0
+offset_left = 203.5
+offset_top = 420.5
+offset_right = 280.5
+offset_bottom = 465.5
+theme_override_font_sizes/font_size = 20
+text = "Close"
+
+[connection signal="pressed" from="MarginContainer/ButtonContiner/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonContiner/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Settings/SettingsCloseButton" to="." method="_on_settings_close_button_pressed"]
