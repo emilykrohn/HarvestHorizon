@@ -4,6 +4,8 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
 func _physics_process(delta):
 
 	# Handle Jump.
@@ -17,5 +19,7 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	animated_sprite_2d.play("ForwardIdle")
 
 	move_and_slide()
