@@ -774,10 +774,6 @@ sources/12 = SubResource("TileSetAtlasSource_4gkb5")
 
 [node name="main" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(288, 162)
-zoom = Vector2(2, 2)
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_k21pp")
 format = 2
