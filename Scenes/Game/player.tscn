@@ -495,7 +495,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrw8d"]
-size = Vector2(12, 14)
+size = Vector2(10, 12)
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
@@ -506,6 +506,7 @@ sprite_frames = SubResource("SpriteFrames_5ub6q")
 animation = &"ForwardIdle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_mrw8d")
 
 [node name="Camera2D" type="Camera2D" parent="."]
