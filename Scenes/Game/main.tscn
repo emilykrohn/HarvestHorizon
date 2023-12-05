@@ -2208,10 +2208,10 @@ size = Vector2(33, 44)
 size = Vector2(32, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtvg6"]
-size = Vector2(114, 63)
+size = Vector2(112, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fnqbx"]
-size = Vector2(13, 46)
+size = Vector2(15.5, 46)
 
 [node name="main" type="Node2D"]
 
@@ -2282,11 +2282,11 @@ collision_mask = 2
 position = Vector2(-3, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LowerDirtPatch"]
-position = Vector2(60, 36.5)
+position = Vector2(59, 36.5)
 shape = SubResource("RectangleShape2D_rtvg6")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LowerDirtPatch"]
-position = Vector2(124, 45)
+position = Vector2(122.75, 45)
 shape = SubResource("RectangleShape2D_fnqbx")
 
 [connection signal="mouse_entered" from="UpperDirtPatch" to="TileMap" method="_on_upper_dirt_patch_mouse_entered"]
