@@ -17,18 +17,21 @@ func _physics_process(delta):
 	
 	if is_tilling:
 		if abs(current_player_tile.x - current_tile.x) <= 1 and abs(current_player_tile.y - current_tile.y) <= 1:
-			animated_sprite_2d.play(direction + "Till")
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			velocity.y = move_toward(velocity.y, 0, SPEED)
+			$%PlayAnimation.play(direction, "Till")
+			velocity = Vector2.ZERO
 	else:
 		velocity = $%PlayerMovement.movement(horizontal_direction, vertical_direction, velocity, SPEED)
+		if velocity:
+			$%PlayAnimation.play(direction, "Walk")
+		else:
+			$%PlayAnimation.play(direction, "Idle")
 
 	move_and_slide()
 
-func play_till_animation(animation, tile, player_tile):
+func start_tilling(tile, player_tile):
 	is_tilling = true
 	current_tile = tile
 	current_player_tile = player_tile
 
-func stop_till_animation():
+func stop_tilling():
 	is_tilling = false

@@ -19,9 +19,9 @@ func _process(delta):
 		set_cell(4, tile, 10, Vector2i(0,0), 0)
 		previous_tile = tile
 		if Input.is_action_pressed("left_click"):
-			$%Player.play_till_animation("Forward", tile, player_tile)
+			$%Player.start_tilling(tile, player_tile)
 		elif Input.is_action_just_released("left_click"):
-			$%Player.stop_till_animation()
+			$%Player.stop_tilling()
 
 func _on_upper_dirt_patch_mouse_entered():
 	can_select = true

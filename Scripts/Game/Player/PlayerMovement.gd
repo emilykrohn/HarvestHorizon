@@ -1,5 +1,7 @@
 extends Node
 
+var current_direction
+
 func movement(horizontal_direction, vertical_direction, velocity, SPEED):
 	if horizontal_direction or vertical_direction:
 		return Vector2(horizontal_direction, vertical_direction).normalized() * SPEED
