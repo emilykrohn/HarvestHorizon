@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://tsy5a2opbc3a"]
+[gd_scene load_steps=35 format=3 uid="uid://tsy5a2opbc3a"]
 
 [ext_resource type="Texture2D" uid="uid://cfm2vbf8ky57t" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/ground tiles/New tiles/Darker_Grass_Hills_Tiles_v2.png" id="1_n7782"]
 [ext_resource type="Texture2D" uid="uid://ccqon56vesxe3" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/ground tiles/New tiles/Soil_Ground_Tiles.png" id="2_lrnyh"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://cnei3iu030ex7" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/Building parts/door animation sprites.png" id="9_iobgc"]
 [ext_resource type="Texture2D" uid="uid://birg7pnc4odld" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/Building parts/Basic Furniture.png" id="10_7v05u"]
 [ext_resource type="PackedScene" uid="uid://bue7g6tvfpgd" path="res://Scenes/Game/player.tscn" id="13_sbick"]
+[ext_resource type="Script" path="res://Scripts/Game/Map.gd" id="14_x5w4p"]
+[ext_resource type="Texture2D" uid="uid://dtof4f2mtj8by" path="res://Art/Select.png" id="15_0n0y6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ybtwq"]
 texture = ExtResource("3_lxjmb")
@@ -478,6 +480,12 @@ texture = ExtResource("1_n7782")
 5:6/0 = 0
 5:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:6/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7lc5i"]
+texture = ExtResource("15_0n0y6")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w6v0"]
 texture = ExtResource("3_jljgg")
@@ -2188,21 +2196,22 @@ sources/8 = SubResource("TileSetAtlasSource_ayb3k")
 sources/9 = SubResource("TileSetAtlasSource_7ff83")
 sources/11 = SubResource("TileSetAtlasSource_7w6v0")
 sources/12 = SubResource("TileSetAtlasSource_4gkb5")
+sources/10 = SubResource("TileSetAtlasSource_7lc5i")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1yws"]
-size = Vector2(108, 92)
+size = Vector2(91, 77)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxn1l"]
-size = Vector2(32, 60)
+size = Vector2(33, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq3eo"]
-size = Vector2(32, 76)
+size = Vector2(32, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtvg6"]
-size = Vector2(124, 76)
+size = Vector2(114, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fnqbx"]
-size = Vector2(16, 58)
+size = Vector2(13, 46)
 
 [node name="main" type="Node2D"]
 
@@ -2239,6 +2248,7 @@ layer_4/y_sort_enabled = false
 layer_4/y_sort_origin = 0
 layer_4/z_index = 0
 layer_4/tile_data = PackedInt32Array(262149, 262153, 2, 262150, 196617, 3, 65547, 65545, 1, 131083, 65545, 2, 131082, 196617, 2, 65546, 131081, 0, 196614, 65545, 0, 131079, 196617, 0, 327689, 131081, 5)
+script = ExtResource("14_x5w4p")
 
 [node name="Player" parent="." instance=ExtResource("13_sbick")]
 position = Vector2(169, 46)
@@ -2248,16 +2258,19 @@ position = Vector2(295, 108)
 collision_layer = 2
 collision_mask = 2
 
+[node name="Marker2D" type="Marker2D" parent="UpperDirtPatch"]
+position = Vector2(-45, -18)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UpperDirtPatch"]
-position = Vector2(41, 28)
+position = Vector2(40.5, 29.5)
 shape = SubResource("RectangleShape2D_s1yws")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="UpperDirtPatch"]
-position = Vector2(-29, 12)
+position = Vector2(-21.5, 13)
 shape = SubResource("RectangleShape2D_gxn1l")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="UpperDirtPatch"]
-position = Vector2(111, 36)
+position = Vector2(102, 36)
 shape = SubResource("RectangleShape2D_pq3eo")
 
 [node name="LowerDirtPatch" type="Area2D" parent="."]
@@ -2265,10 +2278,18 @@ position = Vector2(109, 204)
 collision_layer = 2
 collision_mask = 2
 
+[node name="Marker2D" type="Marker2D" parent="LowerDirtPatch"]
+position = Vector2(-3, -2)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LowerDirtPatch"]
-position = Vector2(59, 36)
+position = Vector2(60, 36.5)
 shape = SubResource("RectangleShape2D_rtvg6")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LowerDirtPatch"]
-position = Vector2(129, 44)
+position = Vector2(124, 45)
 shape = SubResource("RectangleShape2D_fnqbx")
+
+[connection signal="mouse_entered" from="UpperDirtPatch" to="TileMap" method="_on_upper_dirt_patch_mouse_entered"]
+[connection signal="mouse_exited" from="UpperDirtPatch" to="TileMap" method="_on_upper_dirt_patch_mouse_exited"]
+[connection signal="mouse_entered" from="LowerDirtPatch" to="TileMap" method="_on_lower_dirt_patch_mouse_entered"]
+[connection signal="mouse_exited" from="LowerDirtPatch" to="TileMap" method="_on_lower_dirt_patch_mouse_exited"]
