@@ -2251,6 +2251,7 @@ layer_4/tile_data = PackedInt32Array(262149, 262153, 2, 262150, 196617, 3, 65547
 script = ExtResource("14_x5w4p")
 
 [node name="Player" parent="." instance=ExtResource("13_sbick")]
+unique_name_in_owner = true
 position = Vector2(169, 46)
 
 [node name="UpperDirtPatch" type="Area2D" parent="."]
