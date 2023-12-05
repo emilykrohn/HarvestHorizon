@@ -1,7 +1,8 @@
-[gd_scene load_steps=102 format=3 uid="uid://bue7g6tvfpgd"]
+[gd_scene load_steps=103 format=3 uid="uid://bue7g6tvfpgd"]
 
 [ext_resource type="Script" path="res://Scripts/Game/player.gd" id="1_5vvkx"]
 [ext_resource type="Texture2D" uid="uid://cqu337wdtwjlh" path="res://Art/Sprout Lands - Sprites - premium pack/Characters/Premium Charakter Spritesheet.png" id="1_gc5fb"]
+[ext_resource type="Script" path="res://Scripts/Game/Player/PlayerMovement.gd" id="3_0ejv4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xg2d8"]
 atlas = ExtResource("1_gc5fb")
@@ -762,3 +763,7 @@ shape = SubResource("RectangleShape2D_mrw8d")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="PlayerMovement" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_0ejv4")
