@@ -18,7 +18,7 @@ func _process(delta):
 		set_cell(4, tile, 10, Vector2i(0,0), 0)
 		previous_tile = tile
 		if Input.is_action_pressed("left_click"):
-			$%Player.play_animation("ForwardTill")
+			$%Player.play_till_animation("Forward")
 		elif Input.is_action_just_released("left_click"):
 			$%Player.stop_till_animation()
 
