@@ -13,12 +13,13 @@ func _ready():
 func _process(delta):
 	if can_select:
 		var tile = local_to_map(get_global_mouse_position())
+		var player_tile = local_to_map($%Player.global_position)
 		if previous_tile: 
 			erase_cell(4, previous_tile)
 		set_cell(4, tile, 10, Vector2i(0,0), 0)
 		previous_tile = tile
 		if Input.is_action_pressed("left_click"):
-			$%Player.play_till_animation("Forward")
+			$%Player.play_till_animation("Forward", tile, player_tile)
 		elif Input.is_action_just_released("left_click"):
 			$%Player.stop_till_animation()
 
