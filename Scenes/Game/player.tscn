@@ -1,9 +1,10 @@
-[gd_scene load_steps=104 format=3 uid="uid://bue7g6tvfpgd"]
+[gd_scene load_steps=105 format=3 uid="uid://bue7g6tvfpgd"]
 
 [ext_resource type="Script" path="res://Scripts/Game/player.gd" id="1_5vvkx"]
 [ext_resource type="Texture2D" uid="uid://cqu337wdtwjlh" path="res://Art/Sprout Lands - Sprites - premium pack/Characters/Premium Charakter Spritesheet.png" id="1_gc5fb"]
 [ext_resource type="Script" path="res://Scripts/Game/Player/PlayerMovement.gd" id="3_0ejv4"]
 [ext_resource type="Script" path="res://Scripts/Game/PlayAnimation.gd" id="4_7rbtm"]
+[ext_resource type="Script" path="res://Scripts/Game/Player/Tilling.gd" id="5_0j44b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xg2d8"]
 atlas = ExtResource("1_gc5fb")
@@ -772,3 +773,7 @@ script = ExtResource("3_0ejv4")
 [node name="PlayAnimation" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_7rbtm")
+
+[node name="Tilling" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_0j44b")
