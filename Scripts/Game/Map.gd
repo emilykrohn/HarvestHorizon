@@ -3,11 +3,7 @@ extends TileMap
 var can_select := false
 var can_till := false
 var previous_tile = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+var tilled_tiles = []
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,6 +19,8 @@ func _process(delta):
 		if Input.is_action_pressed("left_click"):
 			$%Player.start_tilling(tile, player_tile)
 			set_cell(5, tile, 11, Vector2i(5,1), 0)
+			tilled_tiles.append(tile)
+			print(tilled_tiles)
 		elif Input.is_action_just_released("left_click"):
 			$%Player.stop_tilling()
 
