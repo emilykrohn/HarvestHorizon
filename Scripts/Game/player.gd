@@ -12,11 +12,12 @@ var current_player_tile
 func _physics_process(delta):
 	var horizontal_direction = Input.get_axis("ui_left", "ui_right")
 	var vertical_direction = Input.get_axis("ui_up", "ui_down")
-	
 	if $%Tilling.get_is_tilling():
 		if abs($%Tilling.get_current_player_tile() - $%Tilling.get_current_tile()) <= Vector2i(1,1):
 			$%PlayAnimation.play(direction, "Till")
 			velocity = Vector2.ZERO
+	elif $%Tilling.get_play_animation():
+		$%PlayAnimation.play(direction, "Till")
 	else:
 		velocity = $%PlayerMovement.movement(horizontal_direction, vertical_direction, velocity, SPEED)
 		if velocity:
