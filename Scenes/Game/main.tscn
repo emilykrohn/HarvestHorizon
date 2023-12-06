@@ -2248,6 +2248,13 @@ layer_4/y_sort_enabled = false
 layer_4/y_sort_origin = 0
 layer_4/z_index = 0
 layer_4/tile_data = PackedInt32Array(262149, 262153, 2, 262150, 196617, 3, 65547, 65545, 1, 131083, 65545, 2, 131082, 196617, 2, 65546, 131081, 0, 196614, 65545, 0, 131079, 196617, 0, 327689, 131081, 5)
+layer_5/name = "TilledDirt"
+layer_5/enabled = true
+layer_5/modulate = Color(1, 1, 1, 1)
+layer_5/y_sort_enabled = false
+layer_5/y_sort_origin = 0
+layer_5/z_index = 0
+layer_5/tile_data = PackedInt32Array()
 script = ExtResource("14_x5w4p")
 
 [node name="Player" parent="." instance=ExtResource("13_sbick")]

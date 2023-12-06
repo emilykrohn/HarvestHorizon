@@ -14,12 +14,15 @@ func _process(delta):
 	if can_select:
 		var tile = local_to_map(get_global_mouse_position())
 		var player_tile = local_to_map($%Player.global_position)
+		# erase previous select sprite
 		if previous_tile: 
 			erase_cell(4, previous_tile)
+		# create select sprite where mouse is
 		set_cell(4, tile, 10, Vector2i(0,0), 0)
 		previous_tile = tile
 		if Input.is_action_pressed("left_click"):
 			$%Player.start_tilling(tile, player_tile)
+			set_cell(5, tile, 11, Vector2i(5,1), 0)
 		elif Input.is_action_just_released("left_click"):
 			$%Player.stop_tilling()
 
