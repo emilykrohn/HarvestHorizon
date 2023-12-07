@@ -3,6 +3,7 @@ extends TileMap
 var can_select := false
 var previous_tile = false
 var tilled_tiles = []
+var planted_tiles = []
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,6 +24,8 @@ func _process(delta):
 		elif Input.is_action_just_released("left_click"):
 			$%Player/Tilling.stop_tilling()
 		elif Input.is_action_pressed("right_click") and in_range(tile, player_tile, 1) and tile in tilled_tiles:
+			tilled_tiles.erase(tile)
+			planted_tiles.append(tile)
 			set_cell(5, tile, 13, Vector2i(0,1), 0)
 
 func _on_upper_dirt_patch_mouse_entered():
