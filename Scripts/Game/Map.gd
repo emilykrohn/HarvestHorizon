@@ -13,7 +13,8 @@ func _process(delta):
 		if previous_tile: 
 			erase_cell(4, previous_tile)
 		# create select sprite where mouse is
-		set_cell(4, tile, 10, Vector2i(0,0), 0)
+		if in_range(tile, player_tile, 1):
+			set_cell(4, tile, 10, Vector2i(0,0), 0)
 		previous_tile = tile
 		if Input.is_action_just_pressed("left_click") and in_range(tile, player_tile, 1):
 			$%Player/Tilling.start_tilling(tile, player_tile)
