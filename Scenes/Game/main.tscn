@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://tsy5a2opbc3a"]
+[gd_scene load_steps=38 format=3 uid="uid://tsy5a2opbc3a"]
 
 [ext_resource type="Texture2D" uid="uid://cfm2vbf8ky57t" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/ground tiles/New tiles/Darker_Grass_Hills_Tiles_v2.png" id="1_n7782"]
 [ext_resource type="Texture2D" uid="uid://ccqon56vesxe3" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/ground tiles/New tiles/Soil_Ground_Tiles.png" id="2_lrnyh"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bue7g6tvfpgd" path="res://Scenes/Game/player.tscn" id="13_sbick"]
 [ext_resource type="Script" path="res://Scripts/Game/Map.gd" id="14_x5w4p"]
 [ext_resource type="Texture2D" uid="uid://dtof4f2mtj8by" path="res://Art/Select.png" id="15_0n0y6"]
+[ext_resource type="Script" path="res://Scripts/Game/Planting.gd" id="16_hksgd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ybtwq"]
 texture = ExtResource("3_lxjmb")
@@ -2398,6 +2399,7 @@ size = Vector2(15.5, 46)
 [node name="main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
+unique_name_in_owner = true
 tile_set = SubResource("TileSet_k21pp")
 format = 2
 layer_0/name = "Water"
@@ -2438,6 +2440,10 @@ layer_5/y_sort_origin = 0
 layer_5/z_index = 0
 layer_5/tile_data = PackedInt32Array()
 script = ExtResource("14_x5w4p")
+
+[node name="Planting" type="Node" parent="TileMap"]
+unique_name_in_owner = true
+script = ExtResource("16_hksgd")
 
 [node name="Player" parent="." instance=ExtResource("13_sbick")]
 unique_name_in_owner = true
