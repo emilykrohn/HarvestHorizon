@@ -22,7 +22,7 @@ func _process(delta):
 			tilled_tiles.append(tile)
 		elif Input.is_action_just_released("left_click"):
 			$%Player/Tilling.stop_tilling()
-		elif Input.is_action_pressed("right_click") and in_range(tile, player_tile, 1):
+		elif Input.is_action_pressed("right_click") and in_range(tile, player_tile, 1) and tile in tilled_tiles:
 			set_cell(5, tile, 13, Vector2i(0,1), 0)
 
 func _on_upper_dirt_patch_mouse_entered():
