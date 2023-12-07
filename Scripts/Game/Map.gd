@@ -42,5 +42,8 @@ func _on_lower_dirt_patch_mouse_exited():
 	previous_tile = false
 
 func in_range(tile, player_tile, range):
-	return abs(tile - player_tile) <= Vector2i(range, range)
+	if abs(tile.x - player_tile.x) <= range:
+		if abs(tile.y - player_tile.y) <= range:
+			return true
+	return false
 
