@@ -5,6 +5,8 @@ var current_player_tile
 var is_tilling
 var play_animation := false
 
+var tilled_tiles = []
+
 func start_tilling(tile, player_tile):
 	play_animation = true
 	is_tilling = true
@@ -32,3 +34,9 @@ func set_play_animation(flag):
 func _on_animated_sprite_2d_animation_looped():
 	play_animation = false
 	stop_tilling()
+
+func add_to_tilled_list(tile):
+	tilled_tiles.append(tile)
+
+func remove_from_tilled_list(tile):
+	tilled_tiles.erase(tile)

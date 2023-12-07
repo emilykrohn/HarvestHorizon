@@ -15,20 +15,21 @@ func _process(delta):
 			
 		if in_range(tile, player_tile, 1): # Check if player and mouse are in range of each other
 			set_cell(4, tile, 10, Vector2i(0,0), 0) # create select sprite where mouse is
+		
 		previous_tile = tile # store current tile as previous tile to be used next iteration
 		
 		# Till with left click
 		if Input.is_action_just_pressed("left_click") and in_range(tile, player_tile, 1):
 			$%Player/Tilling.start_tilling(tile, player_tile)
-			set_cell(5, tile, 11, Vector2i(5,1), 0) # Place tilled tile where mouse clicked
-			tilled_tiles.append(tile)
+			$%Planting.place_tilled_tile(tile)
+			$%Player/Tilling.add_to_tilled_list(tile)
 		elif Input.is_action_just_released("left_click"):
 			$%Player/Tilling.stop_tilling()
 		
 		# Plant seed when right click
 		elif Input.is_action_pressed("right_click") and in_range(tile, player_tile, 1) and tile in tilled_tiles:
-			tilled_tiles.erase(tile)
-			$%Planting.add_to_planted_tiles_list(tile)
+			$%Player/Tilling.remove_from_tilled_list(tile)
+			$%Planting.add_to_planted_list(tile)
 			$%Planting.place_plant_tile(tile)
 
 func _on_upper_dirt_patch_mouse_entered():
