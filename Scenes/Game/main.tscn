@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://tsy5a2opbc3a"]
+[gd_scene load_steps=39 format=3 uid="uid://cn7k0h4bfggud"]
 
 [ext_resource type="Texture2D" uid="uid://cfm2vbf8ky57t" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/ground tiles/New tiles/Darker_Grass_Hills_Tiles_v2.png" id="1_n7782"]
 [ext_resource type="Texture2D" uid="uid://ccqon56vesxe3" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/ground tiles/New tiles/Soil_Ground_Tiles.png" id="2_lrnyh"]
@@ -14,9 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://cnei3iu030ex7" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/Building parts/door animation sprites.png" id="9_iobgc"]
 [ext_resource type="Texture2D" uid="uid://birg7pnc4odld" path="res://Art/Sprout Lands - Sprites - premium pack/Tilesets/Building parts/Basic Furniture.png" id="10_7v05u"]
 [ext_resource type="PackedScene" uid="uid://bue7g6tvfpgd" path="res://Scenes/Game/player.tscn" id="13_sbick"]
-[ext_resource type="Script" path="res://Scripts/Game/Map.gd" id="14_x5w4p"]
 [ext_resource type="Texture2D" uid="uid://dtof4f2mtj8by" path="res://Art/Select.png" id="15_0n0y6"]
-[ext_resource type="Script" path="res://Scripts/Game/Planting.gd" id="16_hksgd"]
+[ext_resource type="Script" path="res://Scripts/Game/TileMap/Map.gd" id="15_sv42j"]
+[ext_resource type="Script" path="res://Scripts/Game/TileMap/Planting.gd" id="16_l104f"]
+[ext_resource type="Script" path="res://Scripts/Game/TileMap/TileSelect.gd" id="17_8an7y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ybtwq"]
 texture = ExtResource("3_lxjmb")
@@ -2439,11 +2440,15 @@ layer_5/y_sort_enabled = false
 layer_5/y_sort_origin = 0
 layer_5/z_index = 0
 layer_5/tile_data = PackedInt32Array()
-script = ExtResource("14_x5w4p")
+script = ExtResource("15_sv42j")
 
 [node name="Planting" type="Node" parent="TileMap"]
 unique_name_in_owner = true
-script = ExtResource("16_hksgd")
+script = ExtResource("16_l104f")
+
+[node name="TileSelect" type="Node" parent="TileMap"]
+unique_name_in_owner = true
+script = ExtResource("17_8an7y")
 
 [node name="Player" parent="." instance=ExtResource("13_sbick")]
 unique_name_in_owner = true
@@ -2485,7 +2490,7 @@ shape = SubResource("RectangleShape2D_rtvg6")
 position = Vector2(122.75, 45)
 shape = SubResource("RectangleShape2D_fnqbx")
 
-[connection signal="mouse_entered" from="UpperDirtPatch" to="TileMap" method="_on_upper_dirt_patch_mouse_entered"]
-[connection signal="mouse_exited" from="UpperDirtPatch" to="TileMap" method="_on_upper_dirt_patch_mouse_exited"]
-[connection signal="mouse_entered" from="LowerDirtPatch" to="TileMap" method="_on_lower_dirt_patch_mouse_entered"]
-[connection signal="mouse_exited" from="LowerDirtPatch" to="TileMap" method="_on_lower_dirt_patch_mouse_exited"]
+[connection signal="mouse_entered" from="UpperDirtPatch" to="TileMap/TileSelect" method="_on_upper_dirt_patch_mouse_entered"]
+[connection signal="mouse_exited" from="UpperDirtPatch" to="TileMap/TileSelect" method="_on_upper_dirt_patch_mouse_exited"]
+[connection signal="mouse_entered" from="LowerDirtPatch" to="TileMap/TileSelect" method="_on_lower_dirt_patch_mouse_entered"]
+[connection signal="mouse_exited" from="LowerDirtPatch" to="TileMap/TileSelect" method="_on_lower_dirt_patch_mouse_exited"]

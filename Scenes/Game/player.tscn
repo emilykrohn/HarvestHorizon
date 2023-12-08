@@ -1,9 +1,9 @@
 [gd_scene load_steps=105 format=3 uid="uid://bue7g6tvfpgd"]
 
-[ext_resource type="Script" path="res://Scripts/Game/player.gd" id="1_5vvkx"]
 [ext_resource type="Texture2D" uid="uid://cqu337wdtwjlh" path="res://Art/Sprout Lands - Sprites - premium pack/Characters/Premium Charakter Spritesheet.png" id="1_gc5fb"]
+[ext_resource type="Script" path="res://Scripts/Game/Player/player.gd" id="1_wk5er"]
 [ext_resource type="Script" path="res://Scripts/Game/Player/PlayerMovement.gd" id="3_0ejv4"]
-[ext_resource type="Script" path="res://Scripts/Game/PlayAnimation.gd" id="4_7rbtm"]
+[ext_resource type="Script" path="res://Scripts/Game/Player/PlayAnimation.gd" id="4_lt50s"]
 [ext_resource type="Script" path="res://Scripts/Game/Player/Tilling.gd" id="5_0j44b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xg2d8"]
@@ -753,7 +753,7 @@ size = Vector2(10, 12)
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
-script = ExtResource("1_5vvkx")
+script = ExtResource("1_wk5er")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5ub6q")
@@ -772,7 +772,7 @@ script = ExtResource("3_0ejv4")
 
 [node name="PlayAnimation" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("4_7rbtm")
+script = ExtResource("4_lt50s")
 
 [node name="Tilling" type="Node" parent="."]
 unique_name_in_owner = true
